@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Services</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/script.js"></script>
+  <style>
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+.service-container {
+  display: none;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  align-items: center;
+  gap: 2rem;
+  /* background: #fff; */
+  border-radius: 10px;
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); */
+  margin-top: 80px;
+}
+
+.service-container.active {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.service-image {
+  flex: 1 1 300px;
+  max-width: 500px;
+}
+
+.service-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.service-content {
+  flex: 1 1 300px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.service-content h2 {
+  font-size: 2rem;
+  color: #f1c40f; /* bright yellow for headings */
+  margin-bottom: 1rem;
+}
+
+.service-content p,
+.service-content ul {
+  font-size: 1rem;
+  color: #eee; /* light gray/white for body text */
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.service-content ul {
+  padding-left: 1.25rem;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(90deg, #f1c40f, #f39c12);
+  color: #000; /* black text on yellow button */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+  background: linear-gradient(90deg, #f39c12, #e67e22);
+}
+
+@media (max-width: 768px) {
+  .service-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .service-content,
+  .service-image {
+    max-width: 100%;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="img/aventra logo.jpg" alt="BuildCo Logo" />
+    </div>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="aboutus.html">About Us</a>
+      <div class="dropdown">
+        <a href="#" class="dropbtn">
+          Services <i class="fa-solid fa-chevron-down arrow-icon"></i>
+        </a>
+        <div class="dropdown-content">
+          <a href="products.html?category=heavy">Heavy Equipments</a>
+          <a href="products.html?category=light">Light Equipments</a>
+          <a href="products.html?category=Light vehicle">Light Vehicles</a>
+          <a href="services.html?id=industrial-contracting">Industrial Contracting</a>
+          <a href="services.html?id=industrial-trading"> Industrial Trading</a>
+          <a href="services.html?id=manpower"> Manpower</a>
+          <a href="services.html?id=waste-management">Waste Management</a>
+          <a href="services.html?id=scrap-metal">Scrap Metal Trading</a>
+          <a href="services.html?id=fabrication">Fabrication</a>
+
+
+
+        </div>
+      </div>
+      <a href="products.html">All Equipments</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <!-- Hamburger Icon -->
+    <div class="hamburger" id="hamburger">
+      <i class="fas fa-bars"></i>
+    </div>
+  </header>
+  <!-- Service: Industrial Contracting -->
+  <div class="service-container" id="industrial-contracting">
+    <div class="service-image">
+      <img src="/img/industrialcontract.jpg" alt="Industrial Contracting">
+    </div>
+    <div class="service-content">
+      <h2>Industrial Contracting</h2>
+      <p>AVENTRA Civil arm, proud to be a leading provider of Execution services in the fields of residential, commercial & industrial projects. Since our establishment, we have built our reputation on outstanding execution concepts, value management, and timely project delivery. We have the suitable resources and experience to meet the needs of a wide variety of clients.</p>
+      <ul>
+        <li>Land Development</li>
+        <li>Temporary Facilities</li>
+        <li>Earthworks</li>
+        <li>Reinforced Structures</li>
+        <li>Fence and Parking</li>
+      </ul>
+      <p><strong>Painting Services:</strong> Designed to enhance aesthetics, durability, and value of any structure - residential, commercial, or industrial. We provide customized solutions meeting client needs using premium materials.</p>
+      <ul>
+        <li>Sandblasting: Efficient surface preparation removing rust, old paint, and contaminants from metal, concrete, or wood surfaces.</li>
+        <li>Spray Painting: Fast, even application for large areas with a smooth, uniform finish.</li>
+        <li>Roller Painting: Practical, cost-effective for flat surfaces, excellent coverage with minimal waste.</li>
+      </ul>
+          <a href=" index.html#services" class="back-btn">← Go Back</a>
+
+    </div>
+  </div>
+
+  <!-- Service: Industrial Trading -->
+  <div class="service-container" id="industrial-trading">
+    <div class="service-image">
+      <img src="/img/industrial trading.jpg" alt="Industrial Trading">
+    </div>
+    <div class="service-content">
+      <h2>Industrial Trading</h2>
+      <p>Supplying quality industrial materials, parts, and consumables globally, meeting project demands with reliability and speed.</p>
+      <p>We offer:</p>
+      <ul>
+        <li>Pipes and Fittings</li>
+        <li>Valves</li>
+        <li>Electrical Materials</li>
+        <li>Instrumentation Materials</li>
+        <li>General Construction & Power Tools</li>
+        <li>Industrial Chemicals</li>
+        <li>Scaffolding Materials & Services</li>
+        <li>Safety Materials</li>
+      </ul>
+      <p>Our scaffolding services include material hire, manpower hire, inspection, designs, and calculations, supporting construction and turnaround projects.</p>
+          <a href=" index.html#services" class="back-btn">← Go Back</a>
+
+    </div>
+  </div>
+
+  <!-- Service: Manpower -->
+  <div class="service-container" id="manpower">
+    <div class="service-image">
+      <img src="/img/manpower2.jpg" alt="Manpower Services">
+    </div>
+    <div class="service-content">
+      <h2>Technical Manpower Supply</h2>
+      <p>Committed to providing total solutions for manpower recruitment and successful deployment across multiple categories:</p>
+      <ul>
+        <li><strong>Procurement Personnel:</strong> Buyers, Expeditors, Logistic Officers, Subcontract Administrators, Storekeepers, Warehouse/Material Clerks</li>
+        <li><strong>Project Controls Personnel:</strong> Contract Engineers, Planning & Scheduling Engineers, Cost Control Engineers, Quantity Surveyors (all disciplines), CAD Operators</li>
+        <li><strong>Technical Workforce:</strong> Foremen (all disciplines), Welders (TIG/MIG/6G), Crane Operators, Forklift Operators, Heavy Duty Drivers, Equipment Operators, Riggers, Electricians, Instrument Technicians, Cable Technicians, Fabricators, Pipe Fitters, Industrial Fitters, Machinists, Mechanics (Diesel/Petrol), Sand Blasters, Spray Painters, Carpenters, Scaffolders, Steel Fixers, Drivers (Light/Heavy), Plumbers (skilled & semi-skilled)</li>
+        <li><strong>Administrative Personnel:</strong> Accountants, Technical Clerks, Project Administrators, Admin Clerks, Logistic Coordinators, IT Administrators, Drivers, Janitors</li>
+        <li><strong>Construction Management Personnel:</strong> Construction Supervisors (all disciplines), HSE Personnel, Project Engineers (all disciplines), Inspectors, API Inspectors, Supervisors (all disciplines)</li>
+      </ul>
+          <a href=" index.html#services" class="back-btn">← Go Back</a>
+
+    </div>
+  </div>
+
+  <!-- Service: MEP Services -->
+  <div class="service-container" id="mep">
+    <div class="service-image">
+      <img src="/img/mepservice.jpg" alt="MEP Services">
+    </div>
+    <div class="service-content">
+      <h2>MEP Services</h2>
+      <p>Comprehensive Mechanical, Electrical & Plumbing services for industrial, commercial, and residential sectors, designed to ensure efficient and sustainable building operations.</p>
+      <p>Our MEP services include design, installation, maintenance, and commissioning of all mechanical, electrical, and plumbing systems tailored to your project needs.</p>
+          <a href=" index.html#services" class="back-btn">← Go Back</a>
+
+    </div>
+  </div>
+
+  <!-- Service: Waste Management -->
+  <div class="service-container" id="waste-management">
+    <div class="service-image">
+      <img src="/img/waste management.jpg" alt="Waste Management">
+    </div>
+    <div class="service-content">
+      <h2>Waste Management & Scrap Metal Trading</h2>
+      <p>AVENTRA undertakes major waste disposal services in the Eastern Province of the Kingdom of Saudi Arabia. We provide diversified industrial services meeting the specialized needs of Oil & Gas, Petrochemical, Power, and other industrial sectors.</p>
+      <ul>
+        <li><strong>Dry Waste Collection:</strong> Waste containers from 1.1 cu m to 20 cu m with compactors, skip luggers, and hook loaders.</li>
+        <li><strong>Liquid Waste Collection:</strong> Fleet of tankers and vacuum tankers with capacities ranging from 3000 to 6000 US gallons.</li>
+        <li><strong>Portable Toilet Hire and Services:</strong> Supply and service including effluent removal, cleaning, disinfection, and chemical charge replacement.</li>
+        <li><strong>Scrap Metal Trading:</strong> Purchase, collection, sorting, storage, and sale of scrap metals to recyclers.</li>
+      </ul>
+          <a href=" index.html#services" class="back-btn">← Go Back</a>
+
+    </div>
+  </div>
+
+  <!-- Service: Scrap Metal Trading -->
+  <div class="service-container" id="scrap-metal">
+    <div class="service-image">
+      <img src="/img/scrapmetaltrading.jpg" alt="Scrap Metal Trading">
+    </div>
+    <div class="service-content">
+      <h2>Scrap Metal Trading</h2>
+      <p>We engage in environmentally responsible scrap metal recycling and global trading, contributing to a cleaner and greener planet. Our operations include collection, sorting, storage, and sale to authorized recyclers, ensuring sustainable waste reduction.</p>
+          <a href=" index.html#services" class="back-btn">← Go Back</a>
+
+    </div>
+  </div>
+
+  <!-- Service: Fabrication -->
+  <div class="service-container" id="fabrication">
+    <div class="service-image">
+      <img src="/img/fabrication.jpg" alt="Fabrication">
+    </div>
+    <div class="service-content">
+      <h2>Fabrication</h2>
+      <p>We offer custom fabrication solutions with precision and quality for industrial structures, machinery, and equipment components. Our expert team handles metal cutting, welding, assembly, and finishing to meet client specifications.</p>
+      <p>Services include:</p>
+      <ul>
+        <li>Structural steel fabrication</li>
+        <li>Pipe and equipment fabrication</li>
+        <li>Machinery parts and components</li>
+        <li>Welding and assembly</li>
+        <li>Surface treatment and finishing</li>
+      </ul>
+      <a href=" index.html#services" class="back-btn">← Go Back</a>
+    </div>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const serviceId = urlParams.get("id");
+
+    if (serviceId) {
+      const targetSection = document.getElementById(serviceId);
+      if (targetSection) {
+        targetSection.classList.add("active");
+      } else {
+        document.body.innerHTML = "<h2 style='text-align:center;margin-top:100px;'>Service not found</h2><div style='text-align:center;'><a href='index.html#services' class='back-btn'>← Go Back</a></div>";
+      }
+    }
+  </script>
+
+</body>
+</html>

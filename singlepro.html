@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Product Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    a.back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a.back-link:hover {
+      text-decoration: underline;
+    }
+
+    .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .product-images {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .main-image {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .thumbnail-container {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .thumbnail-container img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border: 2px solid transparent;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .thumbnail-container img.active {
+      border-color: #28a745;
+    }
+
+    .product-details {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .product-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .product-description {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .product-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    input[type="number"] {
+      padding: 8px;
+      font-size: 16px;
+      width: 100px;
+    }
+
+    .enquire-btn {
+      background-color: #ffc107;
+      color: #212529;
+      border: none;
+      padding: 10px 15px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .enquire-btn:hover {
+      background-color: #d39e00;
+    }
+
+    @media (max-width: 600px) {
+      .product-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="products.html" class="back-link">← Back to Products</a>
+  <h2>Product Details</h2>
+  <div class="product-container">
+    <div class="product-images">
+      <img id="main-image" class="main-image" src="" alt="Main Product Image" />
+      <div id="thumbnails" class="thumbnail-container"></div>
+    </div>
+    <div class="product-details">
+      <div id="product-title" class="product-title"></div>
+      <div id="product-description" class="product-description"></div>
+      <div class="product-actions">
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" min="1" value="1" />
+        <button class="enquire-btn" onclick="sendEnquiry()">Enquire Now</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+   const products = [
+  // Heavy Equipment
+  { id: "backhoe-loader", title: "Backhoe Loader", description: "Versatile digging machine.", images: ["img/heavy1.jpg", "", ""] },
+  { id: "blasting-machine", title: "Blasting Machine", description: "Used in controlled blasting jobs.", images: ["img/heavy3.jpg", "", ""] },
+  { id: "bulldozer", title: "Bulldozer", description: "Heavy-duty earth mover.", images: ["img/heavy6.jpg", "", ""] },
+  { id: "concrete-pump", title: "Concrete Pump", description: "Transfers liquid concrete.", images: ["img/heavy7.jpg", "", ""] },
+  { id: "crane", title: "Crane", description: "Lifts heavy materials.", images: ["img/heavy8.jpg", "", ""] },
+  { id: "forklift", title: "Forklift", description: "Lifts and moves heavy goods.", images: ["img/heavy9.jpg", "", ""] },
+  { id: "grader", title: "Grader", description: "Levels terrain.", images: ["img/heavy10.jpg", "", ""] },
+  { id: "loader", title: "Loader", description: "Loads material into trucks.", images: ["img/heavy11.jpg", "", ""] },
+  { id: "piling-hammer", title: "Piling Hammer", description: "Drives piles into the ground.", images: ["img/piling hammer.jpg", "", ""] },
+  { id: "rock-breaker", title: "Rock Breaker", description: "Breaks up large rocks.", images: ["img/heavy13.jpg", "", ""] },
+  { id: "rock-drill", title: "Rock Drill", description: "Drills into rock formations.", images: ["img/heavy15.jpg", "", ""] },
+  { id: "roller-compactor", title: "Roller Compactor", description: "Compacts soil or asphalt.", images: ["img/heavy16.jpg", "", ""] },
+  { id: "material-handler", title: "Material Handler", description: "Handles bulk materials.", images: ["img/heavy17.jpg", "", ""] },
+  { id: "boom-truck", title: "Boom Truck", description: "Truck with mounted crane.", images: ["img/heavy18.jpg", "", ""] },
+  { id: "bus", title: "Bus", description: "Transport for personnel.", images: ["/img/bus1.jpg", "/img/bus2.jpg", "/img/bus3.jpg"] },
+  { id: "dump-truck", title: "Dump Truck", description: "Transports loose material.", images: ["img/heavy19.jpg", "", ""] },
+  { id: "farm-tractor", title: "Farm Tractor", description: "Used in agriculture & towing.", images: ["img/heavy20.jpg", "", ""] },
+  { id: "farm-trailer-highway-truck", title: "Farm Trailer/Highway Truck", description: "Trailer for cargo transport.", images: ["img/heavy21.jpg", "", ""] },
+  { id: "tankers", title: "Tankers", description: "Transports liquids.", images: ["img/heaAVY22.jpg", "", ""] },
+  { id: "low-bed-flat-bed-trailers", title: "Low Bed & Flat Bed Trailers", description: "Carries large equipment.", images: ["img/HEAVY24.jpg", "", ""] },
+
+  // Light Equipment
+  { id: "air-compressor", title: "Air Compressor", description: "Powers air tools.", images: ["/img/air compressor.jpg", "/img/aircompressor2.jpg", "/img/aircompressor3.jpg"] },
+  { id: "cable-trailer", title: "Cable Trailer", description: "Transports cable reels.", images: ["/img/cable trailor.jpg", "/img/cabletrailor2.jpg", "/img/cabletrailor3.jpg"] },
+  { id: "cable-winch", title: "Cable Winch", description: "Pulls heavy cables.", images: ["/img/cable winch.jpg", "/img/cablewinch2.jpg", ""] },
+  { id: "concrete-cutter", title: "Concrete Cutter", description: "Cuts concrete precisely.", images: ["/img/concrete cutter.jpg", "img/concrete cutter2.jpg", "/img/concrete cutter3.jpg"] },
+  { id: "concrete-mixer", title: "Concrete Mixer", description: "Mixes concrete.", images: ["/img/concrete mixer.jpg", "/img/concrete mixer2.jpg", "/img/concretemixer3.jpg"] },
+  { id: "concrete-vibrator", title: "Concrete Vibrator", description: "Settles concrete evenly.", images: ["/img/concrete vibrator.jpg", "/img/concretevibrator2.jpg", "/img/concretevibrator3.jpg"] },
+  { id: "flood-light", title: "Flood Light", description: "Illuminates job sites.", images: ["/img/flood light.jpg", "/img/floodlight2.jpg", "/img/floodlight3.jpg"] },
+  { id: "friction-winch", title: "Friction Winch", description: "Pulling equipment with friction.", images: ["/img/fiction winch.jpg", "/img/frictionwinch2.jpg", "img/frictionwinch3.jpg"] },
+  { id: "generator", title: "Generator", description: "Backup power supply.", images: ["/img/generator.jpg", "/img/generator2.jpg", "/img/generator3.jpg"] },
+  { id: "ground-auger", title: "Ground Auger", description: "Drills holes in soil.", images: ["/img/ground auger.jpg", "/img/groundauger2.jpg", "/img/groundauger3.jpg"] },
+  { id: "jumping-jack-rammer", title: "Jumping Jack Rammer", description: "Soil compactor.", images: ["/img/jumping rammer.jpg", "/img/jumpingrammer2.jpg", "/img/jumpingrammer3.jpg"] },
+  { id: "man-hoist", title: "Man Hoist", description: "Lifts personnel safely.", images: ["/img/man hoist .jpg", "/img/manhoist2.jpg", ""] },
+  { id: "pedestrian-roller", title: "Pedestrian Roller", description: "Compact walk-behind roller.", images: ["/img/pedestrian roller.jpg", "/img/pedestrianroller2.jpg", "/img/pedestrianroller3.jpg"] },
+  { id: "plastering-machine", title: "Plastering Machine", description: "Applies plaster efficiently.", images: ["/img/plastering machine.jpg", "/img/plasteringmachine2.jpg", "/img/plasteringmachine3.jpg"] },
+
+  // Light Vehicles
+  { id: "ambulance", title: "Ambulance", description: "Medical emergency vehicle.", images: ["/img/ambulance.jpg", "img/ambulance2.jpg", ""] },
+  { id: "half-lorry", title: "Half Lorry", description: "Light cargo transport.", images: ["/img/half lorry.jpg", "/img/halflorry2.jpg", "/img/halflorry3.jpg"] },
+  { id: "lubrication-truck", title: "Lubrication Truck", description: "Delivers oils and fluids.", images: ["/img/lubrication truck.jpg", "/img/lubricationtruck2.jpg", "/img/lubricationtruck3.jpg"] },
+  { id: "man-lift", title: "Man Lift", description: "Elevates workers safely.", images: ["/img/man lift.jpg", "/img/manlift2.jpg", "/img/manlift3.jpg"] },
+  { id: "mini-bus", title: "Mini Bus", description: "Compact transport bus.", images: ["/img/mini bus.jpg", "/img/minibus.jpg", "/img/minibus3.jpg"] },
+  { id: "tricycle", title: "Tricycle", description: "3-wheeled transport.", images: ["/img/tricycle.jpg", "/img/tricycle2.jpg", "/img/tricycle3.jpg"] },
+  { id: "motor-cycle", title: "Motor Cycle", description: "Fast 2-wheeled transport.", images: ["/img/motorcycle.jpg", "/img/motorcycle2.jpg", "/img/motorcycle3.jpg"] },
+  { id: "pick-ups", title: "Pick Ups", description: "Work-ready utility truck.", images: ["/img/pickups.jpg", "/img/pickups2.jpg", "/img/pickups3.jpg"] },
+  { id: "sedan", title: "Sedan", description: "Standard car for staff.", images: ["/img/sedan.jpg", "/img/sedan2.jpg", "/img/sedan3.jpg"] },
+  { id: "suv", title: "SUV", description: "Sport Utility Vehicle.", images: ["/img/xuv.jpg", "/img/suv2.jpg", "/img/suv3.jpg"] },
+  { id: "winch-truck", title: "Winch Truck", description: "Towing and recovery truck.", images: ["/img/winchtruck.jpg", "/img/winchtruck2.jpg", "/img/winchtruck3.jpg"] }
+];
+
+
+    function getProductIdFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get("id");
+    }
+
+    function displayProduct(product) {
+      const mainImage = document.getElementById("main-image");
+      const thumbnails = document.getElementById("thumbnails");
+      const title = document.getElementById("product-title");
+      const desc = document.getElementById("product-description");
+
+      mainImage.src = product.images[0];
+      title.textContent = product.title;
+      desc.textContent = product.description;
+
+      thumbnails.innerHTML = product.images.map((src, index) => `
+        <img src="${src}" class="${index === 0 ? 'active' : ''}" onclick="changeMainImage('${src}', this)">
+      `).join('');
+    }
+
+    function changeMainImage(src, thumb) {
+      document.getElementById("main-image").src = src;
+      const allThumbs = document.querySelectorAll(".thumbnail-container img");
+      allThumbs.forEach(img => img.classList.remove("active"));
+      thumb.classList.add("active");
+    }
+
+    function sendEnquiry() {
+      const quantity = document.getElementById("quantity").value;
+      const subject = `Enquiry: ${currentProduct.title}`;
+      const body = `Hello,%0D%0A%0D%0AI am interested in the following product:%0D%0AProduct: ${currentProduct.title}%0D%0AQuantity: ${quantity}%0D%0APlease provide more information and pricing.%0D%0A%0D%0AThank you.`;
+      window.location.href = `mailto:sales@yourcompany.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    }
+
+    const productId = getProductIdFromURL();
+    const currentProduct = products.find(p => p.id === productId);
+
+    if (currentProduct) {
+      displayProduct(currentProduct);
+    } else {
+      document.body.innerHTML = "<h2>Product not found.</h2><a href='products.html' class='back-link'>← Back to Products</a>";
+    }
+  </script>
+
+</body>
+</html>
