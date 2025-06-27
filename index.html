@@ -12,7 +12,6 @@
 
   <!-- Font Awesome CDN -->
   <!-- <script src="https://cdn.emailjs.com/dist/email.min.js"></script> -->
- <script src="/js/script.js"></script>
  
 <style>
 
@@ -371,6 +370,27 @@
     <i class="fas fa-chevron-up"></i>
   </button>
   <script>
+     // navbar menu toggle buttons
+    const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+
+    // Toggle Font Awesome icon classes
+    const icon = hamburger.querySelector('i');
+    if (icon) {
+      if (navLinks.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-xmark');
+      } else {
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+      }
+    }
+  });
+}
     const wrapper = document.getElementById("carouselWrapper");
     const card = document.querySelector(".service-card");
     const nextBtn = document.getElementById("nextBtn");
@@ -430,6 +450,6 @@
     });
   });
 </script>
-
+<script src="/js/script.js"></script>
 </body>
 </html>

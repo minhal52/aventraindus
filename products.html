@@ -7,7 +7,7 @@
    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="/css/style.css">
-  <script src="/js/script.js"></script>
+
   <title>Products</title>
   <style>
   
@@ -174,7 +174,7 @@ h2 {
 <body>
   <header class="navbar">
     <div class="logo">
-          <img src="img/aventralogo-removebg-preview.png" alt="BuildCo Logo" />
+          <img src="img/aventraLogonew-removebg-preview.png" alt="BuildCo Logo" />
 
     </div>
 
@@ -263,6 +263,27 @@ h2 {
   </div>
 </footer>
   <script>
+     // navbar menu toggle buttons
+    const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+
+    // Toggle Font Awesome icon classes
+    const icon = hamburger.querySelector('i');
+    if (icon) {
+      if (navLinks.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-xmark');
+      } else {
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+      }
+    }
+  });
+}
     const products = [
       // Heavy Equipments
       { title: "Backhoe Loader", description: "Versatile digging machine.", image: "img/heavy1.jpg", category: "heavy" },
@@ -356,7 +377,7 @@ h2 {
   const category = getCategoryFromURL();
   displayProducts(category);
 </script>
-
+  <link rel="stylesheet" href="/js/script.js">
 </body>
 </html>
 
