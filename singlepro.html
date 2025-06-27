@@ -685,12 +685,16 @@ a.back-link:hover {
       thumb.classList.add("active");
     }
 
-    function sendEnquiry() {
-      const quantity = document.getElementById("quantity").value;
-      const subject = `Enquiry: ${currentProduct.title}`;
-      const body = `Hello,%0D%0A%0D%0AI am interested in the following product:%0D%0AProduct: ${currentProduct.title}%0D%0AQuantity: ${quantity}%0D%0APlease provide more information and pricing.%0D%0A%0D%0AThank you.`;
-      window.location.href = `mailto:sales@yourcompany.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-    }
+   function sendEnquiry() {
+  const quantity = document.getElementById("quantity").value;
+  const message = `Hello,%0A%0AI am interested in the following product:%0AProduct: ${currentProduct.title}%0AQuantity: ${quantity}%0APlease provide more information and pricing.%0A%0AThank you.`;
+
+  const whatsappNumber = '9660581020725';
+  const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+  window.open(whatsappURL, '_blank');
+}
+
 
     const productId = getProductIdFromURL();
     const currentProduct = products.find(p => p.id === productId);
