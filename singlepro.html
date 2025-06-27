@@ -685,9 +685,18 @@ a.back-link:hover {
       thumb.classList.add("active");
     }
 
-   function sendEnquiry() {
+function sendEnquiry() {
   const quantity = document.getElementById("quantity").value;
-  const message = `Hello,%0A%0AI am interested in the following product:%0AProduct: ${currentProduct.title}%0AQuantity: ${quantity}%0APlease provide more information and pricing.%0A%0AThank you.`;
+  const product = currentProduct.title;
+
+  const message = `Hello,
+
+I am interested in the following product:
+Product: ${product}
+Quantity: ${quantity}
+Please provide more information and pricing.
+
+Thank you.`;
 
   const whatsappNumber = '9660581020725';
   const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
