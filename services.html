@@ -5,14 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Our Services</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="/css/style.css">
   <script src="/js/script.js"></script>
   <style>
 body {
-  font-family: 'Segoe UI', sans-serif;
+ 
   margin: 0;
   padding: 0;
   background-color: black;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+}
+h1, h2, h3 {
+  font-weight: 700;
+}
+p, a, .navbar a {
+  font-weight: 400;
 }
 
 .service-container {
@@ -102,7 +113,8 @@ body {
 <body>
   <header class="navbar">
     <div class="logo">
-      <img src="img/aventra logo.jpg" alt="BuildCo Logo" />
+          <img src="img/aventralogo-removebg-preview.png" alt="BuildCo Logo" />
+
     </div>
 
     <nav class="nav-links" id="navLinks">
@@ -122,9 +134,7 @@ body {
           <a href="services.html?id=waste-management">Waste Management</a>
           <a href="services.html?id=scrap-metal">Scrap Metal Trading</a>
           <a href="services.html?id=fabrication">Fabrication</a>
-
-
-
+<a href="services.html?id=painting">Painting Services</a>
         </div>
       </div>
       <a href="products.html">All Equipments</a>
@@ -199,8 +209,8 @@ body {
         <li><strong>Procurement Personnel:</strong> Buyers, Expeditors, Logistic Officers, Subcontract Administrators, Storekeepers, Warehouse/Material Clerks</li>
         <li><strong>Project Controls Personnel:</strong> Contract Engineers, Planning & Scheduling Engineers, Cost Control Engineers, Quantity Surveyors (all disciplines), CAD Operators</li>
         <li><strong>Technical Workforce:</strong> Foremen (all disciplines), Welders (TIG/MIG/6G), Crane Operators, Forklift Operators, Heavy Duty Drivers, Equipment Operators, Riggers, Electricians, Instrument Technicians, Cable Technicians, Fabricators, Pipe Fitters, Industrial Fitters, Machinists, Mechanics (Diesel/Petrol), Sand Blasters, Spray Painters, Carpenters, Scaffolders, Steel Fixers, Drivers (Light/Heavy), Plumbers (skilled & semi-skilled)</li>
-        <li><strong>Administrative Personnel:</strong> Accountants, Technical Clerks, Project Administrators, Admin Clerks, Logistic Coordinators, IT Administrators, Drivers, Janitors</li>
-        <li><strong>Construction Management Personnel:</strong> Construction Supervisors (all disciplines), HSE Personnel, Project Engineers (all disciplines), Inspectors, API Inspectors, Supervisors (all disciplines)</li>
+        <!-- <li><strong>Administrative Personnel:</strong> Accountants, Technical Clerks, Project Administrators, Admin Clerks, Logistic Coordinators, IT Administrators, Drivers, Janitors</li> -->
+        <!-- <li><strong>Construction Management Personnel:</strong> Construction Supervisors (all disciplines), HSE Personnel, Project Engineers (all disciplines), Inspectors, API Inspectors, Supervisors (all disciplines)</li> -->
       </ul>
           <a href=" index.html#services" class="back-btn">← Go Back</a>
 
@@ -272,7 +282,75 @@ body {
       <a href=" index.html#services" class="back-btn">← Go Back</a>
     </div>
   </div>
+<div class="service-container" id="painting">
+  <div class="service-image">
+    <img src="/img/paintservice.jpg" alt="Painting Services">
+  </div>
+  <div class="service-content">
+    <h2>Painting Services</h2>
+    <p>Our Painting Services are designed to enhance the aesthetics, durability, and value of any structure—residential, commercial, or industrial. With a commitment to quality craftsmanship and premium materials, we provide customized solutions that meet our clients' unique needs and specifications.</p>
+    <p>Services include:</p>
+    <ul>
+      <li>Sandblasting: Efficient surface preparation method that removes rust, old paint, and contaminants from metal, concrete, or wood surfaces.</li>
+      <li>Spray Painting: A fast and even application method, spray painting is perfect for covering large areas and achieving a smooth, uniform finish.</li>
+      <li>Roller Painting: A practical and cost-effective approach for flat surfaces, roller painting provides excellent coverage with minimal waste.</li>
+    </ul>
+    <a href="index.html#services" class="back-btn">← Go Back</a>
+  </div>
+</div>
+<!-- footer -->
+   <footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-about">
+      <img src="/img/aventralogo.jpg" alt="Aventra Industries Logo" class="footer-logo" />
+      <p>Building your vision with precision. We deliver high-quality construction solutions across industries.</p>
+      <div class="footer-social">
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+    </div>
 
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li class="footer-dropdown">
+          <!-- <button class="dropbtn">
+            Services <i class="fa-solid fa-chevron-down"></i>
+          </button> -->
+          <ul class="dropdown-content">
+            <li><a href="products.html?category=heavy">Heavy Equipments</a></li>
+            <li><a href="products.html?category=light">Light Equipments</a></li>
+            <li><a href="products.html?category=Light vehicle">Light Vehicles</a></li>
+            <li><a href="services.html?id=industrial-contracting">Industrial Contracting</a></li>
+            <li><a href="services.html?id=industrial-trading">Industrial Trading</a></li>
+            <li><a href="services.html?id=manpower">Manpower</a></li>
+            <li><a href="services.html?id=waste-management">Waste Management</a></li>
+            <li><a href="services.html?id=scrap-metal">Scrap Metal Trading</a></li>
+            <li><a href="services.html?id=fabrication">Fabrication</a></li>
+           <li><a href="services.html?id=painting">Painting Services</a></li> 
+          </ul>
+        </li>
+        <li><a href="products.html">All products</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p><i class="fa-solid fa-envelope"></i> <a href="mailto:info@aventraindus.com">info@aventraindus.com</a></p>
+      <p><i class="fa-solid fa-phone"></i> +966 0581020725</p>
+      <p><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/9660581020725">+966 0581020725</a></p>
+      <p><i class="fa-solid fa-location-dot"></i> Saudi Arabia</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Aventra Industries. All rights reserved.</p>
+  </div>
+</footer>
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     const serviceId = urlParams.get("id");

@@ -3,36 +3,237 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <title>Product Details</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      max-width: 1200px;
+
+      /* max-width: 1200px; */
       margin: auto;
-      padding: 20px;
+      /* padding: 20px; */
+      background: #000;
+       color: #eee;
     }
+body {
+  font-family: 'Poppins', sans-serif;
+}
+h1, h2, h3 {
+  font-weight: 700;
+}
+p, a, .navbar a {
+  font-weight: 400;
+}
 
-    a.back-link {
-      display: inline-block;
-      margin-bottom: 20px;
-      color: #007bff;
-      text-decoration: none;
-    }
+ /* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 1rem 2rem;
+  border-bottom: 2px solid #f1c40f;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 100px;
+}
+/* Default logo size */
+.logo img {
+  max-height: 120px;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
 
-    a.back-link:hover {
-      text-decoration: underline;
-    }
+/* Larger on very wide screens */
+@media (min-width: 993px) {
+  .logo img {
+    max-height: 140px;
+  }
+}
 
-    .product-container {
+/* Medium screens (tablets) */
+@media (max-width: 992px) and (min-width: 769px) {
+  .logo img {
+    max-height: 100px;
+  }
+}
+
+/* Small screens (mobile) */
+@media (max-width: 768px) {
+  .logo img {
+    max-height: 90px;
+  }
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #f1c40f; 
+}
+
+/* Hamburger Icon (Mobile) */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: black;
+}
+
+.hamburger i {
+  transition: transform 0.3s ease;
+}
+
+/* Mobile styles */
+@media (max-width: 992px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 2rem;
+    background-color: white;
+    padding: 1rem;
+    width: 200px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* Center nav-links horizontally on large screens */
+@media (min-width: 993px) {
+  .nav-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* nav dropdown */
+  
+  /* Dropdown */
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropbtn {
+    cursor: pointer;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    flex-direction: column;
+  }
+  
+  .dropdown-content a {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: black;
+    display: block;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Show dropdown on hover (desktop) */
+  @media (min-width: 993px) {
+    .dropdown:hover .dropdown-content {
       display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
     }
+  }
+  @media (max-width: 992px) {
+    .dropdown-content.show {
+      display: flex;
+    }
+  }
+  .arrow-icon {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Rotate when dropdown is open (mobile) */
+  .arrow-rotate {
+    transform: rotate(180deg);
+  }
+  
+a.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 12px 24px;
+  color: black;
+  font-weight: bold;
+  background-color: #f1c40f;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-    .product-images {
-      flex: 1;
-      min-width: 300px;
-    }
+a.back-link:hover {
+  background-color: #d4ac0d;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  text-decoration: none;
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 992px) {
+  .product-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .product-container {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    padding: 0 15px;
+  }
+}
+
+@media (min-width: 993px) {
+  .product-container {
+    padding: 0 60px;
+  }
+}
 
     .main-image {
       width: 100%;
@@ -86,34 +287,244 @@
     input[type="number"] {
       padding: 8px;
       font-size: 16px;
-      width: 100px;
-    }
-
-    .enquire-btn {
-      background-color: #ffc107;
-      color: #212529;
-      border: none;
-      padding: 10px 15px;
-      font-size: 16px;
+      width: 50px;
+      background-color: #f1c40f;
+      font-weight: bold;
       border-radius: 5px;
-      cursor: pointer;
     }
+.enquire-btn {
+  background: linear-gradient(45deg, #25D366, #128C7E);
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 150px;
+}
 
-    .enquire-btn:hover {
-      background-color: #d39e00;
-    }
+.enquire-btn:hover {
+  opacity: 0.9;
+}
+
+.enquire-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+}
+
 
     @media (max-width: 600px) {
       .product-container {
         flex-direction: column;
       }
     }
+.product-heading {
+  margin-left: 40px;
+  color: #f1c40f;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+  /*footer style  */
+  
+.site-footer {
+  background-color: #1f1f1f;
+  color: #eee;
+  padding: 40px 20px 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+  border-bottom: 1px solid #333;
+  padding-bottom: 30px;
+}
+
+.footer-about,
+.footer-links,
+.footer-contact {
+  flex: 1 1 250px;
+}
+
+.footer-logo {
+  max-width: 180px;
+  margin-bottom: 12px;
+}
+
+.footer-about p {
+  line-height: 1.5;
+  /* margin-bottom: 15px; */
+  margin-top: -20px;
+}
+.footer-social a {
+  color: #ccc;
+  margin-right: 12px;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #f1c40f;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+  color: #f1c40f;
+  margin-bottom: 10px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin: 8px 0;
+  position: relative;
+}
+
+.footer-links a,
+.footer-links button.dropbtn {
+  color: #ccc;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  padding: 0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.footer-links button.dropbtn:hover {
+  color: #f1c40f;
+}
+
+.footer-dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-dropdown .dropbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+}
+
+
+.footer-dropdown .fa-chevron-down {
+  margin-left: 6px;
+  font-size: 0.85rem;
+}
+
+.footer-dropdown .dropdown-content {
+  display: none;
+  flex-direction: column;
+  padding-left: 15px;
+  margin-top: 5px;
+}
+
+.footer-dropdown.open .dropdown-content {
+  display: flex;
+}
+
+.footer-dropdown .dropdown-content li {
+  margin: 4px 0;
+}
+
+.footer-contact p {
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-contact a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+  color: #f1c40f;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-about,
+  .footer-links,
+  .footer-contact {
+    flex: 1 1 100%;
+  }
+
+  .footer-dropdown .dropdown-content {
+    padding-left: 0;
+  }
+}
+
   </style>
 </head>
 <body>
+ <header class="navbar">
+    <div class="logo">
+      <img src="img/aventralogo-removebg-preview.png" alt="BuildCo Logo" />
+    </div>
 
-  <a href="products.html" class="back-link">← Back to Products</a>
-  <h2>Product Details</h2>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="aboutus.html">About Us</a>
+      <div class="dropdown">
+        <a href="#" class="dropbtn">
+          Services <i class="fa-solid fa-chevron-down arrow-icon"></i>
+        </a>
+        <div class="dropdown-content">
+          <a href="products.html?category=heavy">Heavy Equipments</a>
+          <a href="products.html?category=light">Light Equipments</a>
+          <a href="products.html?category=Light vehicle">Light Vehicles</a>
+          <a href="services.html?id=industrial-contracting">Industrial Contracting</a>
+          <a href="services.html?id=industrial-trading"> Industrial Trading</a>
+          <a href="services.html?id=manpower"> Manpower</a>
+          <a href="services.html?id=waste-management">Waste Management</a>
+          <a href="services.html?id=scrap-metal">Scrap Metal Trading</a>
+          <a href="services.html?id=fabrication">Fabrication</a>
+<a href="services.html?id=painting">Painting Services</a>
+  </div>
+      </div>
+      <a href="products.html">All products</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <!-- Hamburger Icon -->
+    <div class="hamburger" id="hamburger">
+      <i class="fas fa-bars"></i>
+    </div>
+  </header>
+ 
+ <h2 class="product-heading">Product Details:</h2>
+
   <div class="product-container">
     <div class="product-images">
       <img id="main-image" class="main-image" src="" alt="Main Product Image" />
@@ -125,34 +536,94 @@
       <div class="product-actions">
         <label for="quantity">Quantity:</label>
         <input type="number" id="quantity" min="1" value="1" />
-        <button class="enquire-btn" onclick="sendEnquiry()">Enquire Now</button>
+    <button class="enquire-btn" onclick="sendEnquiry()">
+  <svg viewBox="0 0 32 32"><path d="M16 0C7.163 0 0 7.164 0 16c0 2.84.742 5.583 2.15 7.996L0 32l8.235-2.127A15.96 15.96 0 0 0 16 32c8.837 0 16-7.164 16-16S24.837 0 16 0zm0 29.67c-2.678 0-5.296-.74-7.574-2.14l-.54-.324-4.89 1.26 1.287-4.743-.352-.552C3.26 20.874 2.34 18.482 2.34 16 2.34 8.95 8.95 2.34 16 2.34c7.05 0 12.66 6.61 12.66 13.66 0 7.05-6.61 12.66-12.66 12.66z"/><path d="M24.96 19.445c-.352-.176-2.073-1.023-2.395-1.14-.32-.117-.555-.176-.79.176-.235.352-.905 1.14-1.11 1.376-.206.235-.411.264-.763.088-.352-.176-1.483-.548-2.825-1.746-1.042-.93-1.743-2.077-1.948-2.43-.205-.352-.022-.542.154-.718.157-.156.352-.411.528-.616.176-.206.235-.352.352-.587.118-.235.058-.44-.029-.616-.088-.176-.79-1.913-1.083-2.63-.285-.684-.576-.59-.79-.6l-.675-.012c-.235 0-.616.088-.94.44s-1.235 1.208-1.235 2.944c0 1.736 1.265 3.414 1.44 3.648.176.235 2.49 3.805 6.033 5.33.843.36 1.5.575 2.01.736.845.269 1.615.231 2.223.141.678-.101 2.073-.847 2.366-1.664.293-.816.293-1.519.205-1.664-.088-.146-.322-.235-.674-.411z"/></svg>
+  Enquire Now
+</button>
+
       </div>
     </div>
   </div>
+<div style="margin-top: 40px; text-align: center;">
+  <a href="products.html" class="back-link">← Go Back to Products</a>
+</div>
 
+ <!-- footer -->
+   <footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-about">
+      <img src="img/aventralogo-removebg-preview.png" alt="Aventra Industries Logo" class="footer-logo" />
+      <p>Building your vision with precision. We deliver high-quality construction solutions across industries.</p>
+      <div class="footer-social">
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li class="footer-dropdown">
+          <!-- <button class="dropbtn">
+            Services <i class="fa-solid fa-chevron-down"></i>
+          </button> -->
+          <ul class="dropdown-content">
+            <li><a href="products.html?category=heavy">Heavy Equipments</a></li>
+            <li><a href="products.html?category=light">Light Equipments</a></li>
+            <li><a href="products.html?category=Light vehicle">Light Vehicles</a></li>
+            <li><a href="services.html?id=industrial-contracting">Industrial Contracting</a></li>
+            <li><a href="services.html?id=industrial-trading">Industrial Trading</a></li>
+            <li><a href="services.html?id=manpower">Manpower</a></li>
+            <li><a href="services.html?id=waste-management">Waste Management</a></li>
+            <li><a href="services.html?id=scrap-metal">Scrap Metal Trading</a></li>
+            <li><a href="services.html?id=fabrication">Fabrication</a></li>
+               <li><a href="services.html?id=painting">Painting Services</a></li> 
+          </ul>
+        </li>
+        <li><a href="products.html">All products</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p><i class="fa-solid fa-envelope"></i> <a href="mailto:info@aventraindus.com">info@aventraindus.com</a></p>
+      <p><i class="fa-solid fa-phone"></i> +966 0581020725</p>
+      <p><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/9660581020725">+966 0581020725</a></p>
+      <p><i class="fa-solid fa-location-dot"></i> Saudi Arabia</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Aventra Industries. All rights reserved.</p>
+  </div>
+</footer>
   <script>
    const products = [
   // Heavy Equipment
-  { id: "backhoe-loader", title: "Backhoe Loader", description: "Versatile digging machine.", images: ["img/heavy1.jpg", "", ""] },
-  { id: "blasting-machine", title: "Blasting Machine", description: "Used in controlled blasting jobs.", images: ["img/heavy3.jpg", "", ""] },
-  { id: "bulldozer", title: "Bulldozer", description: "Heavy-duty earth mover.", images: ["img/heavy6.jpg", "", ""] },
-  { id: "concrete-pump", title: "Concrete Pump", description: "Transfers liquid concrete.", images: ["img/heavy7.jpg", "", ""] },
-  { id: "crane", title: "Crane", description: "Lifts heavy materials.", images: ["img/heavy8.jpg", "", ""] },
-  { id: "forklift", title: "Forklift", description: "Lifts and moves heavy goods.", images: ["img/heavy9.jpg", "", ""] },
-  { id: "grader", title: "Grader", description: "Levels terrain.", images: ["img/heavy10.jpg", "", ""] },
-  { id: "loader", title: "Loader", description: "Loads material into trucks.", images: ["img/heavy11.jpg", "", ""] },
-  { id: "piling-hammer", title: "Piling Hammer", description: "Drives piles into the ground.", images: ["img/piling hammer.jpg", "", ""] },
-  { id: "rock-breaker", title: "Rock Breaker", description: "Breaks up large rocks.", images: ["img/heavy13.jpg", "", ""] },
-  { id: "rock-drill", title: "Rock Drill", description: "Drills into rock formations.", images: ["img/heavy15.jpg", "", ""] },
-  { id: "roller-compactor", title: "Roller Compactor", description: "Compacts soil or asphalt.", images: ["img/heavy16.jpg", "", ""] },
-  { id: "material-handler", title: "Material Handler", description: "Handles bulk materials.", images: ["img/heavy17.jpg", "", ""] },
-  { id: "boom-truck", title: "Boom Truck", description: "Truck with mounted crane.", images: ["img/heavy18.jpg", "", ""] },
+  { id: "backhoe-loader", title: "Backhoe Loader", description: "Versatile digging machine.", images: ["img/heavy1.jpg", ] },
+  { id: "blasting-machine", title: "Blasting Machine", description: "Used in controlled blasting jobs.", images: ["img/heavy3.jpg", ] },
+  { id: "bulldozer", title: "Bulldozer", description: "Heavy-duty earth mover.", images: ["img/heavy6.jpg",] },
+  { id: "concrete-pump", title: "Concrete Pump", description: "Transfers liquid concrete.", images: ["img/heavy7.jpg",] },
+  { id: "crane", title: "Crane", description: "Lifts heavy materials.", images: ["img/heavy8.jpg", ] },
+  { id: "forklift", title: "Forklift", description: "Lifts and moves heavy goods.", images: ["img/heavy9.jpg", ] },
+  { id: "grader", title: "Grader", description: "Levels terrain.", images: ["img/heavy10.jpg", ] },
+  { id: "loader", title: "Loader", description: "Loads material into trucks.", images: ["img/heavy11.jpg", ] },
+  { id: "piling-hammer", title: "Piling Hammer", description: "Drives piles into the ground.", images: ["img/piling hammer.jpg", ] },
+  { id: "rock-breaker", title: "Rock Breaker", description: "Breaks up large rocks.", images: ["img/heavy13.jpg", ] },
+  { id: "rock-drill", title: "Rock Drill", description: "Drills into rock formations.", images: ["img/heavy15.jpg", ] },
+  { id: "roller-compactor", title: "Roller Compactor", description: "Compacts soil or asphalt.", images: ["img/heavy16.jpg",] },
+  { id: "material-handler", title: "Material Handler", description: "Handles bulk materials.", images: ["img/heavy17.jpg", ] },
+  { id: "boom-truck", title: "Boom Truck", description: "Truck with mounted crane.", images: ["img/heavy18.jpg", ] },
   { id: "bus", title: "Bus", description: "Transport for personnel.", images: ["/img/bus1.jpg", "/img/bus2.jpg", "/img/bus3.jpg"] },
-  { id: "dump-truck", title: "Dump Truck", description: "Transports loose material.", images: ["img/heavy19.jpg", "", ""] },
-  { id: "farm-tractor", title: "Farm Tractor", description: "Used in agriculture & towing.", images: ["img/heavy20.jpg", "", ""] },
-  { id: "farm-trailer-highway-truck", title: "Farm Trailer/Highway Truck", description: "Trailer for cargo transport.", images: ["img/heavy21.jpg", "", ""] },
-  { id: "tankers", title: "Tankers", description: "Transports liquids.", images: ["img/heaAVY22.jpg", "", ""] },
-  { id: "low-bed-flat-bed-trailers", title: "Low Bed & Flat Bed Trailers", description: "Carries large equipment.", images: ["img/HEAVY24.jpg", "", ""] },
+  { id: "dump-truck", title: "Dump Truck", description: "Transports loose material.", images: ["img/heavy19.jpg", ] },
+  { id: "farm-tractor", title: "Farm Tractor", description: "Used in agriculture & towing.", images: ["img/heavy20.jpg", ] },
+  { id: "farm-trailer-highway-truck", title: "Farm Trailer/Highway Truck", description: "Trailer for cargo transport.", images: ["img/heavy21.jpg", ] },
+  { id: "tankers", title: "Tankers", description: "Transports liquids.", images: ["img/heaAVY22.jpg", ] },
+  { id: "low-bed-flat-bed-trailers", title: "Low Bed & Flat Bed Trailers", description: "Carries large equipment.", images: ["img/HEAVY24.jpg",] },
 
   // Light Equipment
   { id: "air-compressor", title: "Air Compressor", description: "Powers air tools.", images: ["/img/air compressor.jpg", "/img/aircompressor2.jpg", "/img/aircompressor3.jpg"] },
@@ -227,6 +698,42 @@
     } else {
       document.body.innerHTML = "<h2>Product not found.</h2><a href='products.html' class='back-link'>← Back to Products</a>";
     }
+
+        // navbar menu toggle buttons
+    const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+
+    // Toggle Font Awesome icon classes
+    const icon = hamburger.querySelector('i');
+    if (icon) {
+      if (navLinks.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-xmark');
+      } else {
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+      }
+    }
+  });
+}
+// dropdown
+
+const dropBtn = document.querySelector('.dropbtn');
+const dropdownContent = document.querySelector('.dropdown-content');
+const arrowIcon = dropBtn.querySelector('.arrow-icon');
+
+dropBtn.addEventListener('click', (e) => {
+  if (window.innerWidth <= 992) {
+    e.preventDefault();
+    dropdownContent.classList.toggle('show');
+    arrowIcon.classList.toggle('arrow-rotate');
+  }
+});
+
   </script>
 
 </body>

@@ -1,4 +1,5 @@
-const hamburger = document.getElementById('hamburger');
+    // navbar menu toggle buttons
+    const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 
 if (hamburger && navLinks) {
@@ -51,40 +52,38 @@ backToTopBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
+ // contact form sendamessage mail functionalty
+
 document.getElementById('contactForm').addEventListener('submit', function (e) {
     e.preventDefault();
     alert('Thank you! Your message has been sent.');
     this.reset();
   });
+// 
 
+ 
 
-//   contact form 
-(function () {
-    emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS user ID
-  })();
+  document.getElementById('mailto-btn').addEventListener('click', function () {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const message = document.getElementById('message').value.trim();
 
-  const form = document.getElementById("contact-form");
-  const confirmation = document.getElementById("confirmation");
+    // Validation (optional)
+    if (!name || !email || !message) {
+      alert("Please fill in all required fields.");
+      return;
+    }
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
+    const subject = encodeURIComponent("Contact Form Submission");
+    const body = encodeURIComponent(
+      `Full Name: ${name}\n` +
+      `Email: ${email}\n` +
+      `Phone: ${phone}\n\n` +
+      `Message:\n${message}`
+    );
 
-    emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", form)
-      .then(() => {
-        confirmation.classList.remove("error");
-        confirmation.style.display = "block";
-        confirmation.innerHTML = `
-          <strong>Message sent successfully!</strong><br><br>
-          <strong>Name:</strong> ${form.name.value}<br>
-          <strong>Email:</strong> ${form.email.value}<br>
-          <strong>Phone:</strong> ${form.phone.value || "N/A"}<br>
-          <strong>Message:</strong> ${form.message.value}
-        `;
-        form.reset();
-      }, (error) => {
-        console.error("EmailJS Error:", error);
-        confirmation.classList.add("error");
-        confirmation.style.display = "block";
-        confirmation.innerText = "Failed to send message. Please try again.";
-      });
+    const mailtoLink = `mailto:info@aventraindus.com?subject=${subject}&body=${body}`;
+    window.location.href = mailtoLink;
   });
+

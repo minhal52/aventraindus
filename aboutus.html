@@ -4,9 +4,175 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <!-- <link rel="stylesheet" href="/css/style.css"> -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/js/script.js">
+
     <style>
-        /* === About Section === */
+      body{
+        background-color: #000;
+        
+      }
+      body {
+  font-family: 'Poppins', sans-serif;
+}
+h1, h2, h3 {
+  font-weight: 700;
+}
+p, a, .navbar a {
+  font-weight: 400;
+}
+
+     /* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 1rem 2rem;
+  border-bottom: 2px solid #f1c40f;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 100px;
+}
+/* Default logo size */
+.logo img {
+  max-height: 120px;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+
+/* Larger on very wide screens */
+@media (min-width: 993px) {
+  .logo img {
+    max-height: 140px;
+  }
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 992px) and (min-width: 769px) {
+  .logo img {
+    max-height: 100px;
+  }
+}
+
+/* Small screens (mobile) */
+@media (max-width: 768px) {
+  .logo img {
+    max-height: 90px;
+  }
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #f1c40f; 
+}
+
+/* Hamburger Icon (Mobile) */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: black;
+}
+
+.hamburger i {
+  transition: transform 0.3s ease;
+}
+
+/* Mobile styles */
+@media (max-width: 992px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 2rem;
+    background-color: white;
+    padding: 1rem;
+    width: 200px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* Center nav-links horizontally on large screens */
+@media (min-width: 993px) {
+  .nav-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* nav dropdown */
+  
+  /* Dropdown */
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropbtn {
+    cursor: pointer;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    flex-direction: column;
+  }
+  
+  .dropdown-content a {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: black;
+    display: block;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Show dropdown on hover (desktop) */
+  @media (min-width: 993px) {
+    .dropdown:hover .dropdown-content {
+      display: flex;
+    }
+  }
+  @media (max-width: 992px) {
+    .dropdown-content.show {
+      display: flex;
+    }
+  }
+  /* === About Section === */
 .about-section {
   display: flex;
   align-items: center;
@@ -32,13 +198,13 @@
 }
 
 .about-content h2 {
-  color: #000;
+  color: #f1c40f;
   font-size: 2.2rem;
   margin-bottom: 1rem;
 }
 
 .about-content p {
-  color: #555;
+  color: #ccc;
   line-height: 1.6;
   margin-bottom: 1.2rem;
 }
@@ -61,14 +227,14 @@
 /* === Our Services Section === */
 .services-section {
   padding: 4rem 2rem;
-  background-color: #fff;
+  /* background-color: #fff; */
   text-align: center;
 }
 
 .services-section h2 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
-  color: #000;
+  color: #f1c40f;
 }
 
 .services-section .container {
@@ -120,7 +286,7 @@
   }
 }
 .vision-mission-section {
-  padding: 4rem 2rem;
+  padding: 2rem 2rem;
   background: url('https://images.pexels.com/photos/585419/pexels-photo-585419.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') no-repeat center center/cover;
   position: relative;
   color: white;
@@ -160,14 +326,171 @@
   line-height: 1.8;
   color: #fff;
 }
+  /*footer style  */
+  
+.site-footer {
+  background-color: #1f1f1f;
+  color: #eee;
+  padding: 40px 20px 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+  border-bottom: 1px solid #333;
+  padding-bottom: 30px;
+}
+
+.footer-about,
+.footer-links,
+.footer-contact {
+  flex: 1 1 250px;
+}
+
+.footer-logo {
+  max-width: 180px;
+  /* margin-bottom: 12px; */
+}
+
+.footer-about p {
+  line-height: 1.5;
+  /* margin-bottom: 15px; */
+  margin-top: -20px;
+}
+
+.footer-social a {
+  color: #ccc;
+  margin-right: 12px;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #f1c40f;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+  color: #f1c40f;
+  margin-bottom: 10px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin: 8px 0;
+  position: relative;
+}
+
+.footer-links a,
+.footer-links button.dropbtn {
+  color: #ccc;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  padding: 0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.footer-links button.dropbtn:hover {
+  color: #f1c40f;
+}
+
+.footer-dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-dropdown .dropbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+}
+
+
+.footer-dropdown .fa-chevron-down {
+  margin-left: 6px;
+  font-size: 0.85rem;
+}
+
+.footer-dropdown .dropdown-content {
+  display: none;
+  flex-direction: column;
+  padding-left: 15px;
+  margin-top: 5px;
+}
+
+.footer-dropdown.open .dropdown-content {
+  display: flex;
+}
+
+.footer-dropdown .dropdown-content li {
+  margin: 4px 0;
+}
+
+.footer-contact p {
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-contact a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+  color: #f1c40f;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-about,
+  .footer-links,
+  .footer-contact {
+    flex: 1 1 100%;
+  }
+
+  .footer-dropdown .dropdown-content {
+    padding-left: 0;
+  }
+}
 
   </style>
-    <link rel="stylesheet" href="/js/script.js">
+  
 </head>
 <body>
   <header class="navbar">
     <div class="logo">
-      <img src="img/aventra logo.jpg" alt="BuildCo Logo" />
+           <img src="img/aventralogo-removebg-preview.png" alt="BuildCo Logo" />
+
     </div>
 
     <nav class="nav-links" id="navLinks">
@@ -187,10 +510,8 @@
           <a href="services.html?id=waste-management">Waste Management</a>
           <a href="services.html?id=scrap-metal">Scrap Metal Trading</a>
           <a href="services.html?id=fabrication">Fabrication</a>
-
-
-
-        </div>
+     <a href="services.html?id=painting">Painting Services</a>
+ </div>
       </div>
       <a href="products.html">All Equipments</a>
       <a href="contact.html">Contact Us</a>
@@ -229,19 +550,76 @@
       <h2>Our Services</h2>
       <div class="services-grid">
   
-        <a href="industrial-contracting.html" class="service-card">Industrial Contracting</a>
+        <a href="services.html?id=industrial-contracting" class="service-card">Industrial Contracting</a>
         <a href="equipment-rental.html" class="service-card">Equipment Rental</a>
-        <a href="industrial-trading.html" class="service-card">Industrial Trading</a>
-        <a href="manpower-supply.html" class="service-card">Manpower Supply</a>
-        <a href="mep-services.html" class="service-card">MEP Services</a>
-        <a href="waste-management.html" class="service-card">Waste Management</a>
-        <a href="scrap-metal-trading.html" class="service-card">Scrap Metal Trading</a>
-        <a href="fabrication.html" class="service-card">Fabrication</a>
+        <a href="services.html?id=industrial-trading" class="service-card">Industrial Trading</a>
+        <a href="services.html?id=manpower" class="service-card">Manpower Supply</a>
+        <a href="services.html?id=mep" class="service-card">MEP Services</a>
+        <a href="services.html?id=waste-management" class="service-card">Waste Management</a>
+        <a href="services.html?id=scrap-metal" class="service-card">Scrap Metal Trading</a>
+        <a href="services.html?id=fabrication" class="service-card">Fabrication</a>
+        <a href="services.html?id=painting" class="service-card">Painting Services</a>
+
   
       </div>
     </div>
   </section>
-  
+
+   <!-- footer -->
+   <footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-about">
+      <img src="img/aventralogo-removebg-preview.png" alt="Aventra Industries Logo" class="footer-logo" />
+      <p>Building your vision with precision. We deliver high-quality construction solutions across industries.</p>
+      <div class="footer-social">
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li class="footer-dropdown">
+          <!-- <button class="dropbtn">
+            Services <i class="fa-solid fa-chevron-down"></i>
+          </button> -->
+          <ul class="dropdown-content">
+            <li><a href="products.html?category=heavy">Heavy Equipments</a></li>
+            <li><a href="products.html?category=light">Light Equipments</a></li>
+            <li><a href="products.html?category=Light vehicle">Light Vehicles</a></li>
+            <li><a href="services.html?id=industrial-contracting">Industrial Contracting</a></li>
+            <li><a href="services.html?id=industrial-trading">Industrial Trading</a></li>
+            <li><a href="services.html?id=manpower">Manpower</a></li>
+            <li><a href="services.html?id=waste-management">Waste Management</a></li>
+            <li><a href="services.html?id=scrap-metal">Scrap Metal Trading</a></li>
+            <li><a href="services.html?id=fabrication">Fabrication</a></li>
+    <li><a href="services.html?id=painting">Painting Services</a></li> 
+          </ul>
+        </li>
+        <li><a href="products.html">All products</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p><i class="fa-solid fa-envelope"></i> <a href="mailto:info@aventraindus.com">info@aventraindus.com</a></p>
+      <p><i class="fa-solid fa-phone"></i> +966 0581020725</p>
+      <p><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/9660581020725">+966 0581020725</a></p>
+      <p><i class="fa-solid fa-location-dot"></i> Saudi Arabia</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Aventra Industries. All rights reserved.</p>
+  </div>
+</footer>
+
+ <script src="/js/script.js"></script> 
   
 
 </body>
