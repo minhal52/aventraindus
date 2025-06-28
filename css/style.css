@@ -238,6 +238,9 @@ p, a, .navbar a {
   .about-read-more-btn {
     background-color: #d9aa08;
   }
+.about-content h2 {
+  text-align: left;
+}
 
   /* Responsive */
   @media (max-width: 768px) {
