@@ -19,21 +19,24 @@ if (hamburger && navLinks) {
     }
   });
 }
+
 // dropdown
+document.addEventListener('click', (e) => {
+  const dropBtn = e.target.closest('.dropbtn');
+  
+  if (!dropBtn) return;
 
-const dropBtn = document.querySelector('.dropbtn');
-const dropdownContent = document.querySelector('.dropdown-content');
-const arrowIcon = dropBtn.querySelector('.arrow-icon');
-
-dropBtn.addEventListener('click', (e) => {
   if (window.innerWidth <= 992) {
     e.preventDefault();
-    dropdownContent.classList.toggle('show');
-    arrowIcon.classList.toggle('arrow-rotate');
+
+    const dropdown = dropBtn.closest('.dropdown');
+    const content = dropdown.querySelector('.dropdown-content');
+    const arrow = dropBtn.querySelector('.arrow-icon');
+
+    content.classList.toggle('show');
+    arrow?.classList.toggle('arrow-rotate');
   }
 });
-
-
 
 
 // back to top

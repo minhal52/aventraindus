@@ -15,84 +15,7 @@
  
 <style>
 
-  /*  */
- .hero {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 2;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 3;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-  max-width: 90%;
-}
-
-.hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-}
-
-.hero-content p {
-  font-size: 1.25rem;
-  margin-bottom: 1.5rem;
-  max-width: 600px;
-  margin-inline: auto;
-  font-weight: 600;
-}
-
-
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2.2rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-content h1 {
-    font-size: 1.6rem;
-  }
-
-  .hero-content p {
-    font-size: 0.9rem;
-  }
-
-  .btn {
-    font-size: 0.95rem;
-    padding: 0.6rem 1.2rem;
-  }
-}
-
+ 
 /*  */
 
 
@@ -109,7 +32,7 @@
       <a href="index.html">Home</a>
       <a href="aboutus.html">About Us</a>
       <div class="dropdown">
-        <a href="#" class="dropbtn">
+        <a href="" class="dropbtn">
           Services <i class="fa-solid fa-chevron-down arrow-icon"></i>
         </a>
         <div class="dropdown-content">
@@ -444,12 +367,7 @@ if (hamburger && navLinks) {
   
     // Start auto-scroll on load
     startAutoScroll();
-    // footer
-  document.querySelectorAll('.footer-dropdown .dropbtn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.parentElement.classList.toggle('open');
-    });
-  });
+
 </script>
 <script src="/js/script.js"></script>
 </body>
