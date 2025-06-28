@@ -116,74 +116,60 @@ p, a, .navbar a {
     transform: translateX(-50%);
   }
 }
+/* Dropdown base */
+.dropdown {
+  position: relative;
+}
 
-/* nav dropdown */
-  
-  /* Dropdown */
-  .dropdown {
-    position: relative;
-  }
-  
-  .dropbtn {
-    cursor: pointer;
-  }
-  
+.dropbtn {
+  cursor: pointer;
+}
+
+/* Desktop styles */
+@media (min-width: 993px) {
   .dropdown-content {
     display: none;
     position: absolute;
+    top: 100%;
+    left: 0;
     background-color: white;
     min-width: 160px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     z-index: 1;
-    top: 100%;
-    left: 0;
     flex-direction: column;
   }
-  
-  .dropdown-content a {
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    color: black;
-    display: block;
-    transition: background-color 0.3s ease;
-  }
-  
-  .dropdown-content a:hover {
-    background-color: #f1f1f1;
-  }
-  
-  /* Show dropdown on hover (desktop) */
-  @media (min-width: 993px) {
-    .dropdown:hover .dropdown-content {
-      display: flex;
-    }
-  }
-  @media (max-width: 992px) {
-    .dropdown-content.show {
-      display: flex;
-    }
-  }
-  .arrow-icon {
-    margin-left: 0.5rem;
-    transition: transform 0.3s ease;
-  }
-  
-  /* Rotate when dropdown is open (mobile) */
-  .arrow-rotate {
-    transform: rotate(180deg);
-  }
-  /* Mobile dropdown override */
-@media (max-width: 992px) {
-  .dropdown {
-    width: 100%;
+
+  .dropdown:hover .dropdown-content {
+    display: flex;
   }
 
   .dropbtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 992px) {
+  .dropbtn {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    padding: 0.5rem 0;
+  }
+
+  .dropbtn:focus {
+    outline: none;
   }
 
   .dropdown-content {
@@ -193,12 +179,24 @@ p, a, .navbar a {
     width: 100%;
     box-shadow: none;
     flex-direction: column;
+    padding-left: 1rem;
   }
 
   .dropdown-content.show {
     display: flex;
   }
 }
+
+/* Arrow icon rotation */
+.arrow-icon {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.arrow-rotate {
+  transform: rotate(180deg);
+}
+
 
 
 

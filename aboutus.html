@@ -24,7 +24,8 @@ p, a, .navbar a {
   font-weight: 400;
 }
 
-     /* Navbar */
+
+ /* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -65,6 +66,7 @@ p, a, .navbar a {
     max-height: 90px;
   }
 }
+
 .nav-links {
   display: flex;
   gap: 2rem;
@@ -125,53 +127,88 @@ p, a, .navbar a {
     transform: translateX(-50%);
   }
 }
+/* Dropdown base */
+.dropdown {
+  position: relative;
+}
 
-/* nav dropdown */
-  
-  /* Dropdown */
-  .dropdown {
-    position: relative;
-  }
-  
-  .dropbtn {
-    cursor: pointer;
-  }
-  
+.dropbtn {
+  cursor: pointer;
+}
+
+/* Desktop styles */
+@media (min-width: 993px) {
   .dropdown-content {
     display: none;
     position: absolute;
+    top: 100%;
+    left: 0;
     background-color: white;
     min-width: 160px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     z-index: 1;
-    top: 100%;
-    left: 0;
     flex-direction: column;
   }
-  
-  .dropdown-content a {
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    color: black;
-    display: block;
-    transition: background-color 0.3s ease;
+
+  .dropdown:hover .dropdown-content {
+    display: flex;
   }
-  
-  .dropdown-content a:hover {
-    background-color: #f1f1f1;
+
+  .dropbtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    display: flex;
+    align-items: center;
   }
-  
-  /* Show dropdown on hover (desktop) */
-  @media (min-width: 993px) {
-    .dropdown:hover .dropdown-content {
-      display: flex;
-    }
+}
+
+/* Mobile styles */
+@media (max-width: 992px) {
+  .dropbtn {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  @media (max-width: 992px) {
-    .dropdown-content.show {
-      display: flex;
-    }
+
+  .dropbtn:focus {
+    outline: none;
   }
+
+  .dropdown-content {
+    display: none;
+    position: relative;
+    background-color: white;
+    width: 100%;
+    box-shadow: none;
+    flex-direction: column;
+    padding-left: 1rem;
+  }
+
+  .dropdown-content.show {
+    display: flex;
+  }
+}
+
+/* Arrow icon rotation */
+.arrow-icon {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.arrow-rotate {
+  transform: rotate(180deg);
+}
+
+
   /* === About Section === */
 .about-section {
   display: flex;
@@ -487,36 +524,36 @@ p, a, .navbar a {
   
 </head>
 <body>
-  <header class="navbar">
+ <header class="navbar">
     <div class="logo">
-                    <img src="img/aventraLogonew-removebg-preview.png" alt="BuildCo Logo" />
-
-
+      <img src="img/aventraLogonew-removebg-preview.png" alt="BuildCo Logo" />
     </div>
+<nav class="nav-links" id="navLinks">
+  <a href="index.html">Home</a>
+  <a href="aboutus.html">About Us</a>
 
-    <nav class="nav-links" id="navLinks">
-      <a href="index.html">Home</a>
-      <a href="aboutus.html">About Us</a>
-      <div class="dropdown">
-        <a href="#" class="dropbtn">
-          Services <i class="fa-solid fa-chevron-down arrow-icon"></i>
-        </a>
-        <div class="dropdown-content">
-          <a href="products.html?category=heavy">Heavy Equipments</a>
-          <a href="products.html?category=light">Light Equipments</a>
-          <a href="products.html?category=Light vehicle">Light Vehicles</a>
-          <a href="services.html?id=industrial-contracting">Industrial Contracting</a>
-          <a href="services.html?id=industrial-trading"> Industrial Trading</a>
-          <a href="services.html?id=manpower"> Manpower</a>
-          <a href="services.html?id=waste-management">Waste Management</a>
-          <a href="services.html?id=scrap-metal">Scrap Metal Trading</a>
-          <a href="services.html?id=fabrication">Fabrication</a>
-     <a href="services.html?id=painting">Painting Services</a>
- </div>
-      </div>
-      <a href="products.html">All Equipments</a>
-      <a href="contact.html">Contact Us</a>
-    </nav>
+  <div class="dropdown">
+    <button type="button" class="dropbtn">
+      Services <i class="fa-solid fa-chevron-down arrow-icon"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="products.html?category=heavy">Heavy Equipments</a>
+      <a href="products.html?category=light">Light Equipments</a>
+      <a href="products.html?category=Light vehicle">Light Vehicles</a>
+      <a href="services.html?id=industrial-contracting">Industrial Contracting</a>
+      <a href="services.html?id=industrial-trading">Industrial Trading</a>
+      <a href="services.html?id=manpower">Manpower</a>
+      <a href="services.html?id=waste-management">Waste Management</a>
+      <a href="services.html?id=scrap-metal">Scrap Metal Trading</a>
+      <a href="services.html?id=fabrication">Fabrication</a>
+      <a href="services.html?id=painting">Painting Services</a>
+    </div>
+  </div>
+
+  <a href="products.html">All Products</a>
+  <a href="contact.html">Contact Us</a>
+</nav>
+
 
     <!-- Hamburger Icon -->
     <div class="hamburger" id="hamburger">

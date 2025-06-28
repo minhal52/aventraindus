@@ -21,32 +21,39 @@ if (hamburger && navLinks) {
 
 // Mobile dropdown toggle
 document.addEventListener('click', (e) => {
-  if (window.innerWidth > 992) return;
+  const isMobile = window.innerWidth <= 992;
 
-  const clickedDropBtn = e.target.closest('.dropbtn');
-  const allDropdowns = document.querySelectorAll('.dropdown-content');
-  const allArrows = document.querySelectorAll('.arrow-icon');
+  const dropBtn = e.target.closest('.dropbtn');
+  const dropdown = e.target.closest('.dropdown');
 
-  if (clickedDropBtn) {
+  if (isMobile && dropBtn && dropdown) {
     e.preventDefault();
 
-    const parentDropdown = clickedDropBtn.closest('.dropdown');
-    const content = parentDropdown.querySelector('.dropdown-content');
-    const arrow = clickedDropBtn.querySelector('.arrow-icon');
+    const content = dropdown.querySelector('.dropdown-content');
+    const arrow = dropBtn.querySelector('.arrow-icon');
 
     const isOpen = content.classList.contains('show');
 
-    // Close all other open dropdowns
-    allDropdowns.forEach(dc => dc.classList.remove('show'));
-    allArrows.forEach(ai => ai.classList.remove('arrow-rotate'));
+    // Close all other dropdowns
+    document.querySelectorAll('.dropdown-content.show').forEach(el => el.classList.remove('show'));
+    document.querySelectorAll('.arrow-icon.arrow-rotate').forEach(el => el.classList.remove('arrow-rotate'));
 
-    // Toggle the clicked one
+    // Toggle current
     if (!isOpen) {
       content.classList.add('show');
-      arrow.classList.add('arrow-rotate');
+      arrow?.classList.add('arrow-rotate');
     }
+
+    return;  // Stop here for dropBtn click
+  }
+
+  // On mobile, clicking *outside* dropdown closes all
+  if (isMobile && !dropdown && !e.target.closest('.nav-links')) {
+    document.querySelectorAll('.dropdown-content.show').forEach(el => el.classList.remove('show'));
+    document.querySelectorAll('.arrow-icon.arrow-rotate').forEach(el => el.classList.remove('arrow-rotate'));
   }
 });
+
 
 
 
