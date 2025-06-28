@@ -1,12 +1,11 @@
-    // navbar menu toggle buttons
-    const hamburger = document.getElementById('hamburger');
+// Hamburger toggle
+const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 
 if (hamburger && navLinks) {
   hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
 
-    // Toggle Font Awesome icon classes
     const icon = hamburger.querySelector('i');
     if (icon) {
       if (navLinks.classList.contains('active')) {
@@ -20,23 +19,35 @@ if (hamburger && navLinks) {
   });
 }
 
-// dropdown
+// Mobile dropdown toggle
 document.addEventListener('click', (e) => {
-  const dropBtn = e.target.closest('.dropbtn');
-  
-  if (!dropBtn) return;
+  if (window.innerWidth > 992) return;
 
-  if (window.innerWidth <= 992) {
+  const clickedDropBtn = e.target.closest('.dropbtn');
+  const allDropdowns = document.querySelectorAll('.dropdown-content');
+  const allArrows = document.querySelectorAll('.arrow-icon');
+
+  if (clickedDropBtn) {
     e.preventDefault();
 
-    const dropdown = dropBtn.closest('.dropdown');
-    const content = dropdown.querySelector('.dropdown-content');
-    const arrow = dropBtn.querySelector('.arrow-icon');
+    const parentDropdown = clickedDropBtn.closest('.dropdown');
+    const content = parentDropdown.querySelector('.dropdown-content');
+    const arrow = clickedDropBtn.querySelector('.arrow-icon');
 
-    content.classList.toggle('show');
-    arrow?.classList.toggle('arrow-rotate');
+    const isOpen = content.classList.contains('show');
+
+    // Close all other open dropdowns
+    allDropdowns.forEach(dc => dc.classList.remove('show'));
+    allArrows.forEach(ai => ai.classList.remove('arrow-rotate'));
+
+    // Toggle the clicked one
+    if (!isOpen) {
+      content.classList.add('show');
+      arrow.classList.add('arrow-rotate');
+    }
   }
 });
+
 
 
 // back to top

@@ -172,7 +172,20 @@ p, a, .navbar a {
   .arrow-rotate {
     transform: rotate(180deg);
   }
-  @media (max-width: 992px) {
+  /* Mobile dropdown override */
+@media (max-width: 992px) {
+  .dropdown {
+    width: 100%;
+  }
+
+  .dropbtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+
   .dropdown-content {
     display: none;
     position: relative;
@@ -187,12 +200,6 @@ p, a, .navbar a {
   }
 }
 
-@media (max-width: 992px) {
-  .dropdown-content {
-    position: relative;
-    width: 100%;
-  }
-}
 
 
  /*  */
