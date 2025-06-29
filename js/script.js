@@ -75,36 +75,36 @@ backToTopBtn.addEventListener("click", () => {
 
  // contact form sendamessage mail functionalty
 
-document.getElementById('contactForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    alert('Thank you! Your message has been sent.');
-    this.reset();
-  });
-// 
+// document.getElementById('contactForm').addEventListener('submit', function (e) {
+//     e.preventDefault();
+//     alert('Thank you! Your message has been sent.');
+//     this.reset();
+//   });
+// // 
 
  
 
-  document.getElementById('mailto-btn').addEventListener('click', function () {
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const message = document.getElementById('message').value.trim();
+//   document.getElementById('mailto-btn').addEventListener('click', function () {
+//     const name = document.getElementById('name').value.trim();
+//     const email = document.getElementById('email').value.trim();
+//     const phone = document.getElementById('phone').value.trim();
+//     const message = document.getElementById('message').value.trim();
 
-    // Validation (optional)
-    if (!name || !email || !message) {
-      alert("Please fill in all required fields.");
-      return;
-    }
+//     // Validation (optional)
+//     if (!name || !email || !message) {
+//       alert("Please fill in all required fields.");
+//       return;
+//     }
 
-    const subject = encodeURIComponent("Contact Form Submission");
-    const body = encodeURIComponent(
-      `Full Name: ${name}\n` +
-      `Email: ${email}\n` +
-      `Phone: ${phone}\n\n` +
-      `Message:\n${message}`
-    );
+//     const subject = encodeURIComponent("Contact Form Submission");
+//     const body = encodeURIComponent(
+//       `Full Name: ${name}\n` +
+//       `Email: ${email}\n` +
+//       `Phone: ${phone}\n\n` +
+//       `Message:\n${message}`
+//     );
 
-    const mailtoLink = `mailto:info@aventraindus.com?subject=${subject}&body=${body}`;
-    window.location.href = mailtoLink;
-  });
+//     const mailtoLink = `mailto:info@aventraindus.com?subject=${subject}&body=${body}`;
+//     window.location.href = mailtoLink;
+//   });
 

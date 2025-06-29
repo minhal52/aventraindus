@@ -63,6 +63,7 @@ p, a, .navbar a {
 <div class="contact-wrapper">
    <form class="contact-form" id="contact-form">
     <h2>Contact Us</h2>
+<!-- <input type="hidden" name="to_email" value="info@aventraindus.com" /> -->
 
     <div class="form-group">
       <label for="name">Full Name</label>
@@ -84,7 +85,7 @@ p, a, .navbar a {
       <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
     </div>
 
-   <button type="button" class="send-btn" id="mailto-btn">Send Message</button>
+    <button type="submit" class="send-btn">Send Message</button>
 
     <div id="confirmation"></div>
   </form>
@@ -144,6 +145,24 @@ p, a, .navbar a {
   </div>
 </footer>
   <script src="/js/script.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+    emailjs.init("VC588E5jC9FkQGy8s"); 
+  })();
 
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm('service_xltvd4d', 'template_63eli6u', this)
+      .then(function() {
+        document.getElementById('confirmation').innerHTML = "<p style='color:green;'>Message sent successfully!</p>";
+        document.getElementById('contact-form').reset();
+      }, function(error) {
+        document.getElementById('confirmation').innerHTML = "<p style='color:red;'>Failed to send message. Please try again later.</p>";
+        console.error('EmailJS error:', error);
+      });
+  });
+  </script>
 </body>
 </html>

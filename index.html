@@ -206,10 +206,11 @@
   </section>
   
   
+<!-- contact form -->
 
 <!-- contact form -->
-<div class="contact-wrapper">
-   <form class="contact-form" id="contact-form">
+<!-- <div class="contact-wrapper">
+  <form class="contact-form" id="contact-form">
     <h2>Contact Us</h2>
 
     <div class="form-group">
@@ -232,11 +233,42 @@
       <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
     </div>
 
-   <button type="button" class="send-btn" id="mailto-btn">Send Message</button>
+    <button type="submit" class="send-btn">Send Message</button>
+
+    <div id="confirmation"></div>
+  </form>
+</div> -->
+<div class="contact-wrapper">
+   <form class="contact-form" id="contact-form">
+    <h2>Contact Us</h2>
+<!-- <input type="hidden" name="to_email" value="info@aventraindus.com" /> -->
+
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="+1 234 567 890" />
+    </div>
+
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+    </div>
+
+    <button type="submit" class="send-btn">Send Message</button>
 
     <div id="confirmation"></div>
   </form>
 </div>
+
  <!-- footer -->
    <footer class="site-footer">
   <div class="footer-container">
@@ -295,7 +327,8 @@
 <button id="backToTop" title="Back to Top">
     <i class="fas fa-chevron-up"></i>
   </button>
-  <script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
      // navbar menu toggle buttons
     const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
@@ -370,7 +403,53 @@ if (hamburger && navLinks) {
     // Start auto-scroll on load
     startAutoScroll();
 
+// contact
+
+// document.getElementById("contact-form").addEventListener("submit", function(e) {
+//     e.preventDefault();
+
+//     // Get form values
+//     const name = document.getElementById("name").value.trim();
+//     const email = document.getElementById("email").value.trim();
+//     const phone = document.getElementById("phone").value.trim();
+//     const message = document.getElementById("message").value.trim();
+
+//     // Build subject and body
+//     const subject = encodeURIComponent(`New Contact from ${name}`);
+//     const body = encodeURIComponent(
+//       `You have a new contact form submission:\n\n` +
+//       `Name: ${name}\n` +
+//       `Email: ${email}\n` +
+//       `Phone: ${phone}\n\n` +
+//       `Message:\n${message}`
+//     );
+
+//     // Open default email client
+//     window.location.href = `mailto:info@aventraindus.com?subject=${subject}&body=${body}`;
+//   });
+
+// contact form emailjs
+  (function(){
+    emailjs.init("VC588E5jC9FkQGy8s"); 
+  })();
+
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm('service_xltvd4d', 'template_63eli6u', this)
+      .then(function() {
+        document.getElementById('confirmation').innerHTML = "<p style='color:green;'>Message sent successfully!</p>";
+        document.getElementById('contact-form').reset();
+      }, function(error) {
+        document.getElementById('confirmation').innerHTML = "<p style='color:red;'>Failed to send message. Please try again later.</p>";
+        console.error('EmailJS error:', error);
+      });
+  });
+  
 </script>
 <script src="/js/script.js"></script>
+<!-- Add EmailJS scripts -->
+<!-- <script src="https://cdn.emailjs.com/dist/email.min.js"></script> -->
+
 </body>
 </html>
